@@ -6,7 +6,10 @@ import './body.html';
 
 Template.body.helpers({
   tasks() {
-      var tasksArray = Tasks.find({});
+      var tasksArray = Tasks.find({}).fetch((data) => {
+          console.log('logging data');
+          console.log(data);
+      });
 
       console.log(tasksArray);
       return tasksArray.reverse();
